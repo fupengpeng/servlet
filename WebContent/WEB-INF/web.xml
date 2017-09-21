@@ -1,6 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <display-name>servlet</display-name>
+  <context-param>
+    <param-name>upload_folder</param-name>
+    <param-value>attachment</param-value>
+  </context-param>
+  <context-param>
+    <param-name>allowed file type</param-name>
+    <param-value>.gif,.jpg,.bmp</param-value>
+  </context-param>
+  <servlet>
+    <servlet-name>FirstServlet</servlet-name>
+    <servlet-class>com.jiudianlianxian.servlet.FirstServlet</servlet-class>
+    <init-param>
+      <param-name>chushihuacanshuming</param-name>
+      <param-value>chushihuacanshuzhi</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FirstServlet</servlet-name>
+    <url-pattern>/FirstServlet</url-pattern>
+  </servlet-mapping>
+  
+  	<servlet>
+		<servlet-name>UploadServlet</servlet-name>
+		<servlet-class>
+			com.jiudianlianxian.servlet.UploadServlet
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UploadServlet</servlet-name>
+		<url-pattern>/servlet/UploadServlet</url-pattern>
+	</servlet-mapping>
+  
+  
+    <servlet>
+    <servlet-name>Upload</servlet-name>
+    <servlet-class>com.jiudianlianxian.servlettest01.UploadServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Upload</servlet-name>
+    <url-pattern>/Upload</url-pattern>
+  </servlet-mapping>
+  
+  	<servlet>
+		<servlet-name>ProgressUploadServlet</servlet-name>
+		<servlet-class>
+			com.jiudianlianxian.uploadprogressbarservlet.ProgressUploadServlet
+		</servlet-class>
+	</servlet>
+  	<servlet-mapping>
+		<servlet-name>ProgressUploadServlet</servlet-name>
+		<url-pattern>/servlet/ProgressUploadServlet</url-pattern>
+	</servlet-mapping>
+	
+	
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
